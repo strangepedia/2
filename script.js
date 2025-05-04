@@ -37,3 +37,23 @@ function type() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
+
+// التحقق من حجم الشاشة
+function checkDevice() {
+  if (window.innerWidth <= 768) { // إذا كانت الشاشة في وضع الهاتف
+    document.getElementById("desktop-popup").style.display = "flex";
+  }
+}
+
+// إغلاق النافذة عند الضغط على زر "إغلاق"
+document.getElementById("close-popup").onclick = function() {
+  document.getElementById("desktop-popup").style.display = "none";
+}
+
+// إغلاق النافذة عند الضغط على زر "إغلاق" في المحتوى
+document.getElementById("dismiss-popup").onclick = function() {
+  document.getElementById("desktop-popup").style.display = "none";
+}
+
+// تنفيذ الدالة عند تحميل الصفحة
+window.onload = checkDevice;
