@@ -262,7 +262,7 @@ body {
     color: #fff;
   }
 
-/* استجابة لعرض الشاشات الصغيرة */
+  /* استجابة لعرض الشاشات الصغيرة */
 @media (max-width: 768px) {
   .hero-content {
     padding: 20px;
@@ -294,9 +294,10 @@ body {
     padding: 10px 20px;
   }
 }
+
 /* تصميم نافذة المنبثقة */
 .popup {
-  display: none; /* إخفاء النافذة في البداية */
+  display: none; /* إخفاء النافذة عند تحميل الصفحة */
   position: fixed;
   top: 0;
   left: 0;
@@ -306,11 +307,12 @@ body {
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  display: flex;
 }
 
 /* محتوى النافذة */
 .popup-content {
-  background-color: #fff;
+  background-color: #000;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -340,4 +342,3 @@ button {
 button:hover {
   background-color: #ff9900;
 }
-
