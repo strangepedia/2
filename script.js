@@ -36,12 +36,10 @@ function type() {
   setTimeout(type, speed);
 }
 
-document.addEventListener("DOMContentLoaded", type);
-
 // التحقق من حجم الشاشة
 function checkDevice() {
   if (window.innerWidth <= 768) { // إذا كانت الشاشة في وضع الهاتف
-    document.getElementById("desktop-popup").style.display = "flex";
+    document.getElementById("desktop-popup").style.display = "flex"; // إظهار النافذة المنبثقة
   }
 }
 
@@ -56,4 +54,8 @@ document.getElementById("dismiss-popup").onclick = function() {
 }
 
 // تنفيذ الدالة عند تحميل الصفحة
-window.onload = checkDevice;
+document.addEventListener("DOMContentLoaded", function() {
+  type();
+  checkDevice();
+});
+
