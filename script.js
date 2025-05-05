@@ -38,8 +38,8 @@ function type() {
 
 // التحقق من حجم الشاشة
 function checkDevice() {
-  if (window.innerWidth <= 768) { // إذا كانت الشاشة في وضع الهاتف
-    document.getElementById("desktop-popup").style.display = "flex"; // إظهار النافذة المنبثقة
+  if (window.innerWidth <= 768) {
+    document.getElementById("desktop-popup").style.display = "flex";
   }
 }
 
@@ -59,3 +59,58 @@ document.addEventListener("DOMContentLoaded", function() {
   checkDevice();
 });
 
+// مؤثرات صوتية
+const clickSound = new Audio("sounds/click.mp3");
+const openSound = new Audio("sounds/open.mp3");
+const scrollSound = new Audio("sounds/scroll.mp3");
+const bgMusic = new Audio("sounds/bg-music.mp3");
+
+bgMusic.loop = true;
+bgMusic.volume = 0.2;
+
+// تشغيل الموسيقى الخلفية بعد التفاعل الأول
+document.body.addEventListener('click', () => {
+  if (bgMusic.paused) bgMusic.play();
+}, { once: true });
+
+// صوت عند الضغط على أي زر أو رابط
+document.querySelectorAll("button, a").forEach(el => {
+  el.addEventListener("click", () => {
+    clickSound.play();
+  });
+});
+
+// صوت عند فتح مقال (class = read-more)
+document.querySelectorAll(".read-more").forEach(link => {
+  link.addEventListener("click", () => {
+    openSound.play();
+  });
+});
+
+// صوت عند التمرير
+let lastScrollTop = 0;
+window.addEventListener("scroll", () => {
+  let st = window.scrollY || document.documentElement.scrollTop;
+  if (Math.abs(st - lastScrollTop) > 50) {
+    scrollSound.play();
+    lastScrollTop = st;
+  }
+});
+
+document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // منع النموذج من إرسال البيانات مباشرة
+
+  var email = document.getElementById('email').value;
+  var message = document.getElementById('message');
+
+  // التحقق من صحة البريد الإلكتروني
+  var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (emailRegex.test(email)) {
+    message.textContent = "شكراً على اشتراكك! سيتم إرسال النشرة إلى بريدك الإلكتروني.";
+    message.style.color = "green";
+    // هنا يمكن إضافة كود لإرسال البريد الإلكتروني إلى الخادم (Backend)
+  } else {
+    message.textContent = "يرجى إدخال بريد إلكتروني صالح.";
+    message.style.color = "red";
+  }
+});
