@@ -112,7 +112,7 @@ body {
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* تظليل خفيف لتحسين وضوح النص */
+    background: rgba(0, 0, 0, 0.6); 
     z-index: 1;
   }
   
@@ -161,17 +161,17 @@ body {
 
 .social-links a {
   color: white;
-  background-color: rgba(255, 255, 255, 0.1); /* تصحيح قيمة اللون */
+  background-color: rgba(255, 255, 255, 0.1); 
   padding: 10px;
-  border-radius: 50%; /* تجعل الأيقونات دائرية */
+  border-radius: 50%; 
   font-size: 10px;
   transition: 0.3s ease;
   text-decoration: none;
-  display: flex; /* تأكد من أن الأيقونة تكون مرنة */
+  display: flex; 
   align-items: center;
   justify-content: center;
-  width: 20px; /* الحجم المطلوب */
-  height: 20px; /* الحجم المطلوب */
+  width: 20px; 
+  height: 20px; 
 }
 
 .social-links a:hover {
@@ -313,7 +313,7 @@ body {
 
 /* تصميم نافذة المنبثقة */
 .popup {
-  display: none; /* إخفاء النافذة عند تحميل الصفحة */
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;

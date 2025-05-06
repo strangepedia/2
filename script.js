@@ -98,7 +98,7 @@ window.addEventListener("scroll", () => {
 });
 
 document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // منع النموذج من إرسال البيانات مباشرة
+  event.preventDefault(); 
 
   var email = document.getElementById('email').value;
   var message = document.getElementById('message');
